@@ -41,9 +41,10 @@ public class UsersController {
 	@GetMapping
 	public Page<User> findAll(@RequestParam(defaultValue = "0") int page,
 	                          @RequestParam(defaultValue = "10") int size,
-	                          @RequestParam(defaultValue = "surname") String orderBy) {
+	                          @RequestParam(defaultValue = "surname") String orderBy,
+	                          @RequestParam(defaultValue = "asc") String sortCriteria) {
 
-		return this.usersService.findAll(page, size, orderBy);
+		return this.usersService.findAll(page, size, orderBy, sortCriteria);
 	}
 
 	// 3. GET http://localhost:3001/users/{userId}
